@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20150616152652) do
   create_table "projects", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.string   "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "status",      default: "backlog"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
 end

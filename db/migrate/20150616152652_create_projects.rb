@@ -3,7 +3,7 @@ class CreateProjects < ActiveRecord::Migration
     create_table :projects do |t|
       t.string :title
       t.string :description
-      t.string :status
+      t.string :status, default: "backlog"
 
       t.timestamps null: false
     end
