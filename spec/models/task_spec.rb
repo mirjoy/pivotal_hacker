@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Task, type: :model do
  it "must have a title to be created" do
-    p = Project.create("hi")
+    p = Project.create(title: "hi")
     t1 = Task.create(title: "make toast", project_id: 1)
     t2 = Task.create(title: "")
 
