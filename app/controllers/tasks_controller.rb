@@ -8,11 +8,25 @@ class TasksController < ApplicationController
 
     if @task.save
       flash[:success] = "Your task has been saved"
+      redirect_to :back
     else
       flash[:error] = "Please fill in the required fields"
     end
+  end
 
-    redirect_to :back
+  def show
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.update(title: params[:task][:title], description: params[:task][:description], status: params[:task][:status])
+      flash[:alert] = "Your information has been updated."
+      redirect_to project_path(@task.project_id)
+    else
+      flash[:danger] = "You are missing some fields."
+      redirect_to :back
+    end
   end
 
   private

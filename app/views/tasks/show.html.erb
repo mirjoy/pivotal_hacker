@@ -1,5 +1,5 @@
-<h1>Add a Task</h1>
-<%= form_for(:task, url: tasks_path, method: :post) do |f| %>
+<h1>Edit a Task</h1>
+<%= form_for(:task, url: task_path, method: :put) do |f| %>
   <p><%= f.label :title %>
   <%= f.text_field :title %></p>
 
@@ -8,7 +8,9 @@
 
   <p><%= f.label :status %>
   <%= f.select :status, options_for_select(['backlog', 'current sprint', 'in progress', 'done']) %></p>
-  <%= f.hidden_field(:project_id, value: params[:id]) %>
+  <%= f.hidden_field(:project_id, value: @task.project_id) %>
+  <%= f.hidden_field(:task_id, value: @task.id) %>
+
 
   <p><%= f.submit class: "btn btn-success" %></p>
 <% end %>
