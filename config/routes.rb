@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root "scrum_board#index"
+
+  resources :scrum_board, only: [:new, :create]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
