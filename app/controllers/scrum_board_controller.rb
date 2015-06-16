@@ -1,0 +1,2 @@
+class ScrumBoardController < ApplicationController
+end
