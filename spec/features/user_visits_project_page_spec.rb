@@ -2,7 +2,13 @@ require 'rails_helper'
 
 RSpec.describe "user visits one project page", type: :feature do
   it "should have the four agile states on it" do
-    # expect it to have "backlog", "current sprint", "in progress", and "done"
+    p = Project.create(title: "Get water")
+    visit project_path(p)
+
+    expect(page).to have_content("Backlog")
+    expect(page).to have_content("Current Sprint")
+    expect(page).to have_content("In Progress")
+    expect(page).to have_content("Done")
   end
 
 # When viewing a board, a user should have the option, via a form positioned clearly on the page, to create a new ticket.

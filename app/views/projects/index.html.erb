@@ -1,8 +1,7 @@
-<h1>All Projects</h1>
-<ul>
-<% @projects.each do |proj| %>
-  <li><%= link_to proj.title, project_path(proj) %></li>
-<% end %>
-</ul>
+<div class="text-center">
+  <h1>All Projects</h1>
 
-<%= link_to "Create a New Board", new_project_path, class: "btn btn-success" %>
+  <% @projects.each do |proj| %>
+    <h4><%= link_to proj.title, project_path(proj) %></h4>
+  <% end %>
+</div>
