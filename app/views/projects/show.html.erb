@@ -1,21 +1,56 @@
 <div class="row text-center">
-  <h1><%= @project.title %></h1>
+  <div class="col-sm-8">
+    <h1><%= @project.title %></h1>
+    <h2><%= @project.description %></h2>
+  </div>
+
+  <div class="col-sm-4">
+    <%= render "tasks/new" %>
+  </div>
 </div>
 
 <div class="row text-center">
   <div class="col-sm-3" id="backlog">
     <h3>Backlog</h3>
+    <% @backlogged.each do |task| %>
+      <div class="task">
+        <p><%= task.title %></p>
+        <p><%= task.description %></p>
+        <p><%= task.status %></p>
+      </div>
+    <% end %>
   </div>
 
-  <div class="col-sm-3">
+  <div class="col-sm-3" id="sprint">
     <h3>Current Sprint</h3>
+    <% @current.each do |task| %>
+      <div class="task">
+        <p><%= task.title %></p>
+        <p><%= task.description %></p>
+        <p><%= task.status %></p>
+      </div>
+    <% end %>
   </div>
 
-  <div class="col-sm-3">
+  <div class="col-sm-3" id="progress">
     <h3>In Progress</h3>
+    <% @progress.each do |task| %>
+      <div class="task">
+        <p><%= task.title %></p>
+        <p><%= task.description %></p>
+        <p><%= task.status %></p>
+      </div>
+    <% end %>
   </div>
 
-  <div class="col-sm-3">
+  <div class="col-sm-3" id="done">
     <h3>Done</h3>
+    <% @done.each do |task| %>
+      <div class="task">
+        <p><%= task.title %></p>
+        <p><%= task.description %></p>
+        <p><%= task.status %></p>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -17,11 +17,16 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find_by(id: params[:id])
+
+    @backlogged = @project.tasks.where(status: "backlog")
+    @current = @project.tasks.where(status: "current sprint")
+    @progress = @project.tasks.where(status: "in progress")
+    @done = @project.tasks.where(status: "done")
   end
 
   private
 
   def project_params
-    params.require(:project).permit(:title, :description, :status)
+    params.require(:project).permit(:title, :description)
   end
 end
